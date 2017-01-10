@@ -1,0 +1,18 @@
+server {
+	listen 80;
+	#listen 443 ssl;
+
+	#ssl_certificate /root/nginxfiles/certs/server-cert.pem;
+	#ssl_certificate_key /root/nginxfiles/certs/server-key.pem;
+
+	#ssl_client_certificate /root/nginxfiles/certs/ca.pem;
+	#ssl_verify_client optional;
+
+        #auth_basic "Restricted access";
+        #auth_basic_user_file /root/nginxfiles/certs/htpasswd;
+
+	root /root/nginxfiles;
+	location / {
+		autoindex on;
+	}
+}
