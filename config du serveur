@@ -1,0 +1,15 @@
+server {
+	listen 80 default_server;
+	listen 443 ssl default_server;
+
+	ssl_certificate /etc/nginx/certs/server-cert.pem;
+	ssl_certificate_key /etc/nginx/certs/server-key.pem;
+
+	ssl_client_certificate /etc/nginx/certs/ca.pem;
+	ssl_verify_client on;
+
+	location / {
+		add_header Content-Type text/html;
+		return 200 'Hello $ssl_client_s_dn';
+	}
+}
